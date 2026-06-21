@@ -1,1 +1,49 @@
-IyBTY2FuIExvZwoKfCBEYXRlIHwgU3RhdHVzIHwgTmV3IG9mZmVycyB8IE5vdGVzIHwKfC0tLS0tfC0tLS0tLS18LS0tLS0tLS0tLS18LS0tLS0tfAp8IDIwMjYtMDYtMTkgfCBGQUlMRUQgfCAwIHwgTmV0d29yayBlZ3Jlc3MgYmxvY2tlZCAtLSBzZWUgYmVsb3cgfAoKLS0tCgojIyAyMDI2LTA2LTE5IOKAlCBTY2FuIEZhaWx1cmU6IE5ldHdvcmsgRWdyZXNzIEJsb2NrZWQKCioqQWxsIDgyIGNvbXBhbmllcyByZXR1cm5lZCBIVFRQIDQwMy4qKiBUaGUgcmVtb3RlIGV4ZWN1dGlvbiBlbnZpcm9ubWVudCdzIG5ldHdvcmsgZWdyZXNzIHBvbGljeSBkZW5pZXMgb3V0Ym91bmQgcmVxdWVzdHMgdG8gam9iLWJvYXJkIEFQSSBob3N0cy4KCiMjIyBGaXggcmVxdWlyZWQ6IGFkZCB0aGVzZSBob3N0cyB0byB5b3VyIGVncmVzcyBhbGxvd2xpc3QKCi0gYGJvYXJkcy1hcGkuZ3JlZW5ob3VzZS5pb2AKLSBgYXBpLmFzaGJ5aHEuY29tYAotIGBhcGkubGV2ZXIuY29gCi0gYGFwcGx5LndvcmthYmxlLmNvbWAKCkRvY3M6IGh0dHBzOi8vY29kZS5jbGF1ZGUuY29tL2RvY3MvZW4vY2xhdWRlLWNvZGUtb24tdGhlLXdlYgoKIyMjIEFsc28gbm90ZWQKCi0gKipjYXJlZXItb3BzIHVwZGF0ZSBhdmFpbGFibGUqKjogdjEuOS4wIOKGkiB2MS4xMi4wIOKAlCBydW4gYG5vZGUgdXBkYXRlLXN5c3RlbS5tanMgYXBwbHlgCi0gMTQgY29tcGFuaWVzIChPcGVuQUksIFNhbGVzZm9yY2UsIEdvbmcsIEdlbmVzeXMsIGV0Yy4pIG5lZWQgV2ViU2VhcmNoIGFuZCByZXF1aXJlIGFuIGludGVyYWN0aXZlIGAvY2FyZWVyLW9wcyBzY2FuYCBwYXNzCi0gYGN2Lm1kYCBhbmQgYGNvbmZpZy9wcm9maWxlLnltbGAgYXJlIG5vdCB5ZXQgc2V0IHVwIOKAlCBvbmJvYXJkaW5nIHdpbGwgcnVuIG9uIG5leHQgaW50ZXJhY3RpdmUgc2Vzc2lvbgo=
+# Scan Log
+
+| Date | Status | New offers | Notes |
+|-----|-------|-----------|------|
+| 2026-06-21 | FAILED | 0 | Network egress blocked -- see below |
+| 2026-06-19 | FAILED | 0 | Network egress blocked -- see below |
+
+---
+
+## 2026-06-21 — Scan Failure: Network Egress Blocked (repeat)
+
+**All 82 companies returned HTTP 403** (same as 2026-06-19). The remote execution environment's network egress policy continues to deny outbound requests to job-board API hosts.
+
+### Fix required: add these hosts to your egress allowlist
+
+- `boards-api.greenhouse.io`
+- `api.ashbyhq.com`
+- `api.lever.co`
+- `apply.workable.com`
+
+Docs: https://code.claude.com/docs/en/claude-code-on-the-web
+
+### Also noted
+
+- **career-ops update available**: v1.9.0 → v1.12.0 — run `node update-system.mjs apply`
+- 14 companies (OpenAI, Salesforce, Gong, Genesys, etc.) need WebSearch and require an interactive `/career-ops scan` pass
+- `cv.md` and `config/profile.yml` are not yet set up — onboarding will run on next interactive session
+- `portals.yml` and `modes/_profile.md` were bootstrapped from templates this run
+
+---
+
+## 2026-06-19 — Scan Failure: Network Egress Blocked
+
+**All 82 companies returned HTTP 403.** The remote execution environment's network egress policy denies outbound requests to job-board API hosts.
+
+### Fix required: add these hosts to your egress allowlist
+
+- `boards-api.greenhouse.io`
+- `api.ashbyhq.com`
+- `api.lever.co`
+- `apply.workable.com`
+
+Docs: https://code.claude.com/docs/en/claude-code-on-the-web
+
+### Also noted
+
+- **career-ops update available**: v1.9.0 → v1.12.0 — run `node update-system.mjs apply`
+- 14 companies (OpenAI, Salesforce, Gong, Genesys, etc.) need WebSearch and require an interactive `/career-ops scan` pass
+- `cv.md` and `config/profile.yml` are not yet set up — onboarding will run on next interactive session
